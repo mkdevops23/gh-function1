@@ -26,5 +26,6 @@ jobs:
         uses: Azure/functions-action@v1
         with:
           app-name: 'demo-java-app1'
-          package: '/home/site/wwwroot'
+          package: '.'
+          sku: 'flexconsumption'    # Parameter required when using a publish profile with Flex Consumption
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
