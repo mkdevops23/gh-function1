@@ -3,7 +3,7 @@ name: Build and Deploy Spring Function to Azure
 on:
   push:
     branches:
-      - main1
+      - main
 env:
   AZURE_FUNCTIONAPP_NAME: "demo-java-app1"
   AZURE_FUNCTIONAPP_PACKAGE_PATH: "."

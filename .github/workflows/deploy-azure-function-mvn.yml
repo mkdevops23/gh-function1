@@ -1,8 +1,9 @@
 name: Deploy Java project to Azure Function App
 
 on:
-  [push]
-
+  push:
+    branches:
+      - main1
 env:
   AZURE_FUNCTIONAPP_NAME: 'demo-java-app1'   # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                    # set this to the directory which contains pom.xml file
@@ -34,5 +35,7 @@ jobs:
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.POM_XML_DIRECTORY }}' # if there are multiple function apps in same project, then this path will be like './${{ env.POM_XML_DIRECTORY }}/target/azure-functions/${{ env.POM_FUNCTIONAPP_NAME }'
+        #package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        sku: 'flexconsumption'    # Parameter required when using a publish profile with Flex Consumption
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
         respect-pom-xml: true
