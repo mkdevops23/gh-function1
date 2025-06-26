@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  AZURE_FUNCTIONAPP_NAME: "java-function-app"
+  AZURE_FUNCTIONAPP_NAME: "java-function-app"  #updated
   AZURE_FUNCTIONAPP_PACKAGE_PATH: "."
   #NODE_VERSION: "20.x
 jobs:
