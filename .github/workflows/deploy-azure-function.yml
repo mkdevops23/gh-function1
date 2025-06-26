@@ -5,13 +5,12 @@ on:
     branches:
       - main
 env:
-  AZURE_FUNCTIONAPP_NAME: "java-function-app"  #updated
+  AZURE_FUNCTIONAPP_NAME: "java-function-app"
   AZURE_FUNCTIONAPP_PACKAGE_PATH: "."
   #NODE_VERSION: "20.x
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: mk-poc
 
     steps:
       - name: Checkout code
@@ -26,17 +25,10 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
-      - name: 'Log in to Azure with AZ CLI'
-        uses: azure/login@v2
-        with:
-            client-id: ${{ vars.AZURE_CLIENT_ID }} # Required to log in with OIDC
-            tenant-id: ${{ vars.AZURE_TENANT_ID }} # Required to log in with OIDC
-            subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }} # Required to log in with OIDC        
-
       - name: Deploy to Azure Function App
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          #sku: 'flexconsumption'    # Parameter required when using a publish profile with Flex Consumption
-          #publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+          sku: 'flexconsumption'    # Parameter required when using a publish profile with Flex Consumption
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
