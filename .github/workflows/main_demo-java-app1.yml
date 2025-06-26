@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_NAME: demo-java-app1 # set this to your function app name on Azure
+  AZURE_FUNCTIONAPP_NAME: java-function-app # set this to your function app name on Azure
   PACKAGE_DIRECTORY: '.' # set this to the directory which contains pom.xml file
   JAVA_VERSION: '21' # set this to the java version to use
 
