@@ -5,7 +5,7 @@ on:
     branches:
       - main1
 env:
-  AZURE_FUNCTIONAPP_NAME: 'demo-java-app1'   # set this to your function app name on Azure
+  AZURE_FUNCTIONAPP_NAME: 'java-function-app'   # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                    # set this to the directory which contains pom.xml file
   JAVA_VERSION: '8'                         # set this to the java version to use (e.g. '8', '11', '17')
 
