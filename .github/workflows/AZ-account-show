@@ -1,7 +1,10 @@
 # File: .github/workflows/workflow.yml
 
-on: [push]
-
+on:
+  push:
+    branches:
+      - main1
+      
 name: Run Azure Login With a Service Principal Secret
 
 jobs:
