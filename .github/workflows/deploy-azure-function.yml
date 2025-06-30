@@ -29,7 +29,7 @@ jobs:
       #   uses: azure/login@v2
       #   with:
       #     cred-id: ${{ secrets.AZURE_RBAC_CREDENTIALS }}
-      - name: Az login
+      - name: Az login1
         run: |
           az login --service-principal -u ${{ secrets.CLIENTID }} -p ${{ secrets.CLIENTSECRET }} --tenant ${{ secrets.TENANTID }}
           az account set --subscription ${{ secrets.SUBSCRIPTIONID }}  
